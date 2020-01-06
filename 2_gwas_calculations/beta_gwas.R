@@ -112,8 +112,7 @@ gwasdata<-readRDS(covariate_rds)
 residuals_rds=paste0(datafolder,cohort,"_",dist,"_residuals.rds")
 cap.resid<-readRDS(residuals_rds)
 
-#cap.resid<-readRDS("/home/mruehlemann/DBF_GPU/focus/FOCUS_weightedUniFrac.residuals.Rds")
-files<-c(paste(paste0(datafolder,cohort,"genotype_data/chr",chrom,".maf.clean"),c("bed","bim","fam"),sep="."))
+files<-c(paste(paste0(datafolder,cohort,"_genotype_data/chr",chrom,".maf.clean"),c("bed","bim"),sep="."),paste0(datafolder,cohort,"_genotype_data/",cohort,".fam"))
 plink<-read.plink(files[1],files[2],files[3])
 if(cohort in c("popgen", "focus")){rownames(plink$genotypes)<-plink$fam$member}
 if(cohort in c("ship", "shipt")){rownames(plink$genotypes)<-plink$fam$pedigree}
