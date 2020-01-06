@@ -21,7 +21,7 @@ library(phyloseq)
 datafolder="/ifs/data/nfs_share/sukmb276/GWAS/180718_German_mGWAS/data/"
 
 ## output folder
-outfolder=paste0("/home/sukmb276/Isilon/GWAS/180718_German_mGWAS/",cohort,"_logreg/LR_",tax)
+outfolder=paste0("/home/sukmb276/Isilon/GWAS/180718_German_mGWAS/",cohort,"_negbin/NB_",tax)
 dir.create(,recursive=T)
 
 ### load covariate data: age, gender, BMI and genetic data ID (genid)
