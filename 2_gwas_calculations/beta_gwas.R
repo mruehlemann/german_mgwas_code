@@ -160,5 +160,5 @@ names(res)<-c("n","AA","AB","BB","stat","P");return(res)},mc.cores=getOption("mc
 out[,c("n","AA","AB","BB","stat","P")]<-data.frame(do.call(rbind, f))
 print(head(out))
 
-dir.create("results/BetaUnifrac",recursive=T)
+dir.create(""results/",dist,"/",cohort,recursive=T)
 saveRDS(out,paste0("results/",dist,"/",cohort,"/chr",chrom,".chunk.",chunk,".of.",nchunks,".rds"))
