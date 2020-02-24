@@ -68,6 +68,11 @@ if(cohort=="kora"){testdata=testdata[testdata$genid %in% rownames(pca),]}
 pca_sub<-pca[testdata$genid,]
 testdata<-data.frame(testdata, pca_sub)
 
+nb_mod<-glm.nb(tax ~ age + gender + bmi + PC1 + PC2 + PC3 + PC4 + PC5 + PC6 + PC7 + PC8 + PC9 + PC10, data=testdata)
+print(nb_mod)
+testdata$resid<-residuals(nb_mod)
+
+
 ### iterate over choromosomes
 for(chrom in 1:22){
 print(chrom)
