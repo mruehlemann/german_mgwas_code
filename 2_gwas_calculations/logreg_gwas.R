@@ -95,7 +95,7 @@ system.time(f<-mclapply(as.list(sub), function(snp){
 df<-data.frame(testdata,gt=gts[,snp])
 df<-df[is.na(df$gt)==F & is.na(df$resid)==F,]
 if(nrow(df)>100 & length(unique(df$gt))>1){
-  res<-c(nrow(df),table(factor(df$gt,levels=c(0,1,2))),tryCatch(summary(lm(resid ~ gt , data=df))$coefficients[2,], error=function(x) return(rep(NA,4))))
+  res<-c(nrow(df),table(factor(df$gt,levels=c(0,1,2))),tryCatch(summary(glm(tax ~ age + gender + bmi + PC1 + PC2 + PC3 + PC4 + PC5 + PC6 + PC7 + PC8 + PC9 + PC10 + gt , data=df,family = binomial(link = "logit")))$coefficients[15,], error=function(x) return(rep(NA,4))))
   names(res)<-c("n","AA","AB","BB","Beta","StdErr","Z","P")
 }else{
   res<-rep(NA,8)
